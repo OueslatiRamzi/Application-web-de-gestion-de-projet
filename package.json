@@ -18,9 +18,21 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "mongoose": "^8.3.3",
+    "mongoose-unique-validator": "^5.0.0",
+    "multer": "^1.4.5-lts.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "datatables.net": "^1.11.3",
+    "datatables.net-dt": "^1.11.3",
+    "@angular/material": "^13.3.9"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.1.3",

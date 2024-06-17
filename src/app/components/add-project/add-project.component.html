@@ -1,0 +1,87 @@
+<section class="bg-1100">
+    <div class="container">
+        <div class="row py-8 py-md-10 py-lg-11">
+            <div class="col-10 col-lg-7">
+
+                <form #addProjectForm="ngForm" (ngSubmit)="addEditProject()">
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="a"
+                            [(ngModel)]="project.name" placeholder="Nom du projet">
+                        <label for="floatingInput">Nom du projet</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="b"
+                            [(ngModel)]="project.produits" placeholder="Produits installés">
+                        <label for="floatingInput">Produits installés</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="c"
+                            [(ngModel)]="project.promotion" placeholder="Promotion">
+                        <label for="floatingInput">Promotion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="d"
+                            [(ngModel)]="project.contactPromoteur" placeholder="Contact promoteur">
+                        <label for="floatingInput">Contact promoteur</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="e"
+                            [(ngModel)]="project.zone" placeholder="Zone">
+                        <label for="floatingInput">Zone</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="f"
+                            [(ngModel)]="project.bureauDetude" placeholder="Bureau d'étude">
+                        <label for="floatingInput">Bureau d'étude</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="g"
+                            [(ngModel)]="project.installateur" placeholder="Installateur">
+                        <label for="floatingInput">Installateur</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="h"
+                            [(ngModel)]="project.contactInstallateur" placeholder="Contact installateur">
+                        <label for="floatingInput">Contact installateur</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="i"
+                            [(ngModel)]="project.avancement" placeholder="Avancement">
+                        <label for="floatingInput">Avancement</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="j"
+                            [(ngModel)]="project.dateVisite" placeholder="Date visite">
+                        <label for="floatingInput">Date visite</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="k"
+                            [(ngModel)]="project.remarque" placeholder="Remarque">
+                        <label for="floatingInput">Remarque</label>
+                    </div>
+                    <div class="about-text">
+                        <button class="btn" class="form-control email-input" type="button" (click)="filePicker.click()">
+                            Sélectionner image du projet
+                        </button>
+                        <div>
+                            <input class="form-control email-input" style="visibility: hidden" type="file" #filePicker
+                                multiple="multiple" (change)="onImageSelected($event)" />
+                        </div>
+
+                        <div class="col-lg-6 position-lg-relative" *ngFor="let image of images">
+
+
+                            <img class="img-fluid" [src]="image" alt="img" width="150px" />
+
+                        </div>
+
+                    </div>
+                    <span>{{msg}}</span>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <input class="btn btn-lg btn-success" type="submit" value="{{title}}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

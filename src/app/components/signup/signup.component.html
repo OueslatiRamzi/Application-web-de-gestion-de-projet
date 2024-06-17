@@ -1,0 +1,74 @@
+<section class="bg-300 position-relative z-0" id="contact">
+    <div class="container py-8 py-lg-9">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="row justify-content-center">
+
+                    <div class="col-10 col-lg-7">
+                        <form [formGroup]="signupForm">
+                            <div class="form-floating mb-3" >
+                                <input class="form-control email-input" type="text" formControlName="firstName" 
+                                    placeholder="First Name" /><label for="floatingInput" >Nom</label>
+                                <div *ngIf="signupForm.controls['firstName'].invalid  && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)"
+                                    class="text-danger">
+
+                                    <div *ngIf="signupForm.controls['firstName'].errors?.['required']">Champ obligatoire</div>
+                                    <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']">Minimum 3 lettres</div>
+
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" formControlName="lastName" class="form-control email-input"
+                                    placeholder="Last Name" /><label for="floatingInput" >Prénom</label>
+                                <div *ngIf="signupForm.controls['lastName'].invalid  && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)"
+                                    class="text-danger">
+
+                                    <div *ngIf="signupForm.controls['lastName'].errors?.['required']">Champ obligatoire</div>
+                                    <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']">Minimum 3 lettres</div>
+
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" formControlName="email" class="form-control email-input" placeholder="Email" /><label for="floatingInput" >Email</label>
+                                <div *ngIf="signupForm.controls['email'].invalid  && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)"
+                                    class="text-danger">
+
+                                    <div *ngIf="signupForm.controls['email'].errors?.['required']">Champ obligatoire</div>
+                                    <div *ngIf="signupForm.controls['email'].errors?.['email']">Email invalid</div>
+
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" formControlName="password" class="form-control email-input"
+                                    placeholder="password" /><label for="floatingInput" >Mot de passe</label>
+                                    <div *ngIf="signupForm.controls['password'].invalid  && (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)"
+                                    class="text-danger">
+                                    <div *ngIf="signupForm.controls['password'].errors?.['required']">saisissez votre mot de passe</div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" formControlName="cPassword" class="form-control email-input"
+                                    placeholder="c password" /><label for="floatingInput" >Confirmer le mot de passe</label>
+                                <div *ngIf="signupForm.controls['cPassword'].invalid  && (signupForm.controls['cPassword'].touched || signupForm.controls['cPassword'].dirty)"
+                                    class="text-danger">
+
+                                    <div *ngIf="signupForm.controls['cPassword'].errors?.['mustMatch']">Mot de passe incorrecte</div>
+
+                                </div>
+                            </div>
+                            <span class="text-danger">{{msg}}</span>
+                            <div class="form-floating mb-3">
+                                <button type="button" [disabled]="signupForm.invalid" (click)="signup()"
+                                class="btn btn-success btn-sm ms-md-x1 ">S'inscrire</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-absolute bottom-0 end-0 z-n1 d-none d-lg-block"><img
+            src="assets/img/illustrations/Green_dots.svg" alt="" /></div>
+    <div class="position-relative bottom-0 start-0 z-1"><img class="img-fluid w-100"
+            src="assets/img/illustrations/Wave_3.svg" alt="" /></div>
+</section>

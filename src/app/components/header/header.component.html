@@ -1,0 +1,18 @@
+
+<nav class="navbar navbar-expand-md fixed-top" *ngIf="showHeader">
+    <div class="container-fluid px-0"><a routerLink="/"><h1 class="navbar-brand w-75 d-md-none" ><strong [ngClass]="{'text-color': isLoginOrSignupPage()}" style="letter-spacing: 3px;">Domovit</strong></h1></a><a class="navbar-brand fw-bold d-none d-md-block" routerLink="/"><div><img *ngIf="router.url === '/table-projects' || router.url === '/table-clients' || router.url === '/signup' || router.url === '/signupAdminDomovit'" class="img-fluid logo" width="200px" src="assets/img/logos/Asset 2@3x.png" alt="Domovit" /><img *ngIf="router.url !== '/table-projects' && router.url !== '/table-clients' && router.url !== '/signup' && router.url !== '/signupAdminDomovit'" class="img-fluid logo" width="190px" src="assets/img/logos/lgb.png" style="position: relative; top: -20px; margin: 0;" alt="Domovit" /></div></a>
+      <a class="btn btn-outline-success btn-sm ms-md-x1 mt-lg-0 order-md-1 ms-auto" *ngIf="!isLoggedIn()"  routerLink="/login"><span>Connectez-vous</span> </a>
+      <a class="btn btn-outline-danger btn-sm ms-md-x1 mt-lg-0 order-md-1 ms-auto" *ngIf="isLoggedIn()" (click)="logout()"   routerLink="/"><span [ngClass]="{'text-color': isLoginOrSignupPage()}">Déconnexion</span></a><button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="true" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
+        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
+          <li class="nav-item"><a routerLinkActive="active" *ngIf="isLoggedIn()"  routerLink="/add-project" [ngClass]="{'text-color': isLoginOrSignupPage()}" class="nav-link lh-xl">Ajouter Projet</a></li>
+          <li class="nav-item"><a routerLinkActive="active" *ngIf="isLoggedIn()"  routerLink="/add-client" [ngClass]="{'text-color': isLoginOrSignupPage()}" class="nav-link lh-xl">Ajouter client</a></li>
+          <li class="nav-item"><a *ngIf="isLoggedIn()"  routerLink="/table-projects" [ngClass]="{'text-color': isLoginOrSignupPage()}" class="nav-link lh-xl">Projets</a></li>
+          <li class="nav-item"><a *ngIf="isLoggedIn()"  routerLink="/table-clients" [ngClass]="{'text-color': isLoginOrSignupPage()}" class="nav-link lh-xl">Clients</a></li>
+          <li class="nav-item"><a routerLinkActive="active" *ngIf="isLoggedIn() && role=='admin'" routerLink="/signup" [ngClass]="{'text-color': isLoginOrSignupPage()}" class="nav-link lh-xl">Inscription</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+

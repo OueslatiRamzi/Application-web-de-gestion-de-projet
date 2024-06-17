@@ -1,0 +1,79 @@
+<section class="intro" style="margin-top: 90px;">
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="form-floating mb-3 col-lg-3" style="margin-left: 20%;">
+            <input type="text" class="form-control email-input" name="a" [(ngModel)]="term"
+              placeholder="Search" /><label for="floatingInput"><strong>Rechercher</strong></label>
+          </div>
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 400px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #002d72;">
+                      <tr>
+                        <th scope="col" style="font-size: medium;">Nom</th>
+                        <th scope="col" style="font-size: medium;">Produits</th>
+                        <th scope="col" style="font-size: medium;">Promotion</th>
+                        <th scope="col" style="font-size: medium;">Contact<br>Promoteur</th>
+                        <th scope="col" style="font-size: medium;">Zone</th>
+                        <th scope="col" style="font-size: medium;">Bureau<br>d'étude</th>
+                        <th scope="col" style="font-size: medium;">Installateur</th>
+                        <th scope="col" style="font-size: medium;">Contact<br>Installateur</th>
+                        <th scope="col" style="font-size: medium;">Avancement</th>
+                        <th scope="col" style="font-size: medium;">Date visite</th>
+                        <th scope="col" style="font-size: medium;">Remarque</th>
+                        <th scope="col" style="font-size: medium;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let p of projects | myFilter : term">
+                        <td>{{p.name}}</td>
+                        <td>{{p.produits}}</td>
+                        <td>{{p.promotion}}</td>
+                        <td>{{p.contactPromoteur}}</td>
+                        <td>{{p.zone}}</td>
+                        <td>{{p.bureauDetude}}</td>
+                        <td>{{p.installateur}}</td>
+                        <td>{{p.contactInstallateur}}</td>
+                        <td>{{p.avancement}}</td>
+                        <td>{{p.dateVisite}}</td>
+                        <td>{{p.remarque}}</td>
+                        <td style="font-size: medium;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                          <script>
+                            function confirmDelete(projectId) {
+                              if (confirm("Êtes-vous sûr de vouloir supprimer ce projet ?")) {
+                                deleteProject(projectId); // Appeler la fonction de suppression si l'utilisateur confirme
+                              } else {
+                                // L'utilisateur a annulé la suppression, ne rien faire
+                              }
+                            }
+                          </script>
+                          
+                          <!-- Modifiez le bouton "Supp" pour appeler la fonction de confirmation -->
+                          <button (click)="confirmDelete(p._id)"><img  src="assets/img/logos/delete_6861362.png" alt="supprimer" /></button>
+                          <!--
+                            lorsque vous cliquez sur le bouton "Supp", une boîte de dialogue apparaîtra demandant à 
+                            l'utilisateur de confirmer la suppression. Si l'utilisateur clique sur "OK", la fonction 
+                            deleteProject sera appelée pour supprimer le projet. Sinon, l'opération de suppression sera annulée.
+                          -->
+                          <button (click)="navigateTo(p._id ,'/edit-project/')" ><img  src="assets/img/logos/edit_12000663.png" alt="Modifier" /></button>
+                          <button (click)="navigateTo(p._id ,'/project-info/')" ><img  src="assets/img/logos/information-button_1176.png" alt="Information" /></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

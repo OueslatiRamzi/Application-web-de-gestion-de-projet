@@ -1,0 +1,5 @@
+img {
+    display: block;
+    max-height: 100%; /* Assurer que l'image ne dépasse pas la hauteur du conteneur parent */
+    height: 100%; /* Remplir la hauteur du conteneur parent */
+}

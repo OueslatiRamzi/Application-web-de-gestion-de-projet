@@ -1,0 +1,31 @@
+<section class="bg-1100">
+    <div class="container">
+      <div class="row py-8 py-md-10 py-lg-11">
+        <div class="col-lg-6">
+          <div class="row justify-content-center justify-content-lg-start">
+            <div class="col-md-8 col-lg-12 col-xl-11">
+              <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start fw-bold">Informations du client {{client.name}}</h2>
+            </div>
+            <div class="col-lg-10">
+                <ol class="fs-8 fw-bold lh-lg mb-1 text-white">
+                    <li class="list-group-item">Num facture :   {{client.numFacture}}</li>
+                    <li class="list-group-item">Valeur facture :   {{client.valeurFacture}} DT</li>
+                    <li class="list-group-item">Valeur réglement :   {{client.valeurReglement}} DT</li>
+                    <li class="list-group-item">Moyen de réglement :   {{client.moyenReglement}}</li>
+                    <li class="list-group-item">
+                        Etat :   <strong [ngClass]="{'text-success': (client.valeurReglement - client.valeurFacture) === 0, 'text-danger': (client.valeurReglement - client.valeurFacture) !== 0}">
+                            {{ (client.valeurReglement - client.valeurFacture) === 0 ? 'Le paiement a été effectué' : (client.valeurReglement - client.valeurFacture)+' DT' }}
+                                </strong>
+                    </li>
+                    <li class="list-group-item">Remarque :   {{client.remarque}}</li>
+                  </ol> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+        
+          

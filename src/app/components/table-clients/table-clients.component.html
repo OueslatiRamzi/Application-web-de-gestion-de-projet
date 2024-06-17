@@ -1,0 +1,68 @@
+<section class="intro" style="margin-top: 90px;">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="form-floating mb-3 col-lg-3" style="margin-left: 20%;">
+              <input type="text" class="form-control email-input" name="a" [(ngModel)]="termm"
+                placeholder="Search" /><label for="floatingInput"><strong>Rechercher</strong></label>
+            </div>
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                    style="position: relative; height: 400px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                        <tr>
+                          <th scope="col" style="font-size: medium;">Nom du client</th>
+                          <th scope="col" style="font-size: medium;">Num facture</th>
+                          <th scope="col" style="font-size: medium;">Valeur facture</th>
+                          <th scope="col" style="font-size: medium;">Valeur réglement</th>
+                          <th scope="col" style="font-size: medium;">Moyen de réglement</th>
+                          <th scope="col" style="font-size: medium;">Remarque</th>
+                          <th scope="col" style="font-size: medium;">Etat</th>
+                          <th scope="col" style="font-size: medium;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" >Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let c of clients | myFilterClient : termm">
+                          <td>{{c.name}}</td>
+                          <td>{{c.numFacture}}</td>
+                          <td>{{c.valeurFacture}} DT</td>
+                          <td>{{c.valeurReglement}} DT</td>
+                          <td>{{c.moyenReglement}}</td>
+                          <td>{{c.remarque}}</td>
+                          <td [ngClass]="{'text-success': (c.valeurReglement - c.valeurFacture) === 0, 'text-danger': (c.valeurReglement - c.valeurFacture) !== 0}">
+                            <strong>{{ (c.valeurReglement - c.valeurFacture) === 0 ? 'Le paiement a été effectué' : (c.valeurReglement - c.valeurFacture)+' DT' }}</strong>
+                          </td>                          
+                          <td style="font-size: medium;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                            <script>
+                                function confirmDelete(clientId) {
+                                  if (confirm("Êtes-vous sûr de vouloir supprimer ce client ?")) {
+                                    deleteClientt(clientId); // Appeler la fonction de suppression si l'utilisateur confirme
+                                  } else {
+                                    // L'utilisateur a annulé la suppression, ne rien faire
+                                  }
+                                }
+                              </script>
+                              
+                              <!-- Modifiez le bouton "Supp" pour appeler la fonction de confirmation -->
+                              <button (click)="confirmDelete(c._id)"><img  src="assets/img/logos/delete_6861362.png" alt="supprimer" /></button>
+                            <button (click)="navigateTo(c._id ,'/edit-client/')" ><img  src="assets/img/logos/edit_12000663.png" alt="Modifier" /></button>
+                            <button (click)="navigateTo(c._id ,'/client-info/')" ><img  src="assets/img/logos/information-button_1176.png" alt="Information" /></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

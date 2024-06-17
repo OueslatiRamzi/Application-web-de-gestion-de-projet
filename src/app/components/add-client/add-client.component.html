@@ -1,0 +1,47 @@
+<section class="bg-1100">
+    <div class="container">
+        <div class="row py-8 py-md-10 py-lg-11">
+            <div class="col-10 col-lg-7">
+
+                <form #addClientForm="ngForm" (ngSubmit)="addEditClient()">
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="a"
+                            [(ngModel)]="client.name" placeholder="Nom du client">
+                        <label for="floatingInput">Nom du client</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="b"
+                            [(ngModel)]="client.numFacture" placeholder="Num facture">
+                        <label for="floatingInput">Num facture</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="c"
+                            [(ngModel)]="client.valeurFacture" placeholder="Valeur facture">
+                        <label for="floatingInput">Valeur facture</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="d"
+                            [(ngModel)]="client.valeurReglement" placeholder="Valeur règlement">
+                        <label for="floatingInput">Valeur règlement</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="e" [(ngModel)]="client.moyenReglement" class="form-select" >
+                            <option value="Chèque">Chèque</option>
+                            <option value="Traite">Traite</option>
+                            <option value="Espèce">Espèce</option>
+                          </select>
+                          <label for="floatingInput">Moyen de règlement</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control email-input" type="text" style="text-align: center;" name="f"
+                            [(ngModel)]="client.remarque" placeholder="remarque">
+                        <label for="floatingInput">Remarque</label>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <input class="btn btn-lg btn-success" type="submit" value="{{title}}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

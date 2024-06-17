@@ -1,0 +1,55 @@
+<section class="bg-1100">
+    <div class="container">
+      <div class="row py-8 py-md-10 py-lg-11">
+        <div class="col-lg-6">
+          <div class="row justify-content-center justify-content-lg-start">
+            <div class="col-md-8 col-lg-12 col-xl-11">
+              <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start fw-bold">Informations du projet {{project.name}}</h2>
+            </div>
+            <div class="col-lg-10">
+                <ol class="fs-8 fw-bold lh-lg mb-1 text-white">
+                    <li class="list-group-item">Produits installés :   {{project.produits}}</li>
+                    <li class="list-group-item">Promotion :   {{project.promotion}}</li>
+                    <li class="list-group-item">Contact promoteur :   {{project.contactPromoteur}}</li>
+                    <li class="list-group-item">Zone :   {{project.zone}}</li>
+                    <li class="list-group-item">Bureau d'étude :   {{project.bureauDetude}}</li>
+                    <li class="list-group-item">Installateur :   {{project.installateur}}</li>
+                    <li class="list-group-item">Contact installateur:   {{project.contactInstallateur}}</li>
+                    <li class="list-group-item">Avancement :   {{project.avancement}}</li>
+                    <li class="list-group-item">Date visite :   {{project.dateVisite}}</li>
+                    <li class="list-group-item">Remarque :   {{project.remarque}}</li>
+                    <li class="list-group-item">Dernière mise à jour :   {{project.lastUpdate}}</li>
+                  </ol> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item" *ngFor="let image of project.images; let i = index" [class.active]="i === 0">
+                    <img [src]="image" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              
+     
+              </div>              
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+        
+          
